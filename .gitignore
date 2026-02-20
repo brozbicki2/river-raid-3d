@@ -1,0 +1,11 @@
+# Godot 4 — pliki generowane automatycznie
+.godot/
+*.import
+*.uid
+
+# Eksporty
+export/
+builds/
+
+# macOS
+.DS_Store

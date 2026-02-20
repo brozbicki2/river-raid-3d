@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Background - river -->
+  <rect width="128" height="128" fill="#2D5A1B"/>
+  <rect x="30" y="0" width="68" height="128" fill="#1C5FCC"/>
+  <!-- Player jet -->
+  <rect x="60" y="90" width="8" height="20" fill="#E0E0E0"/>
+  <rect x="44" y="98" width="40" height="6" fill="#E0E0E0"/>
+  <!-- Enemy tanker -->
+  <rect x="45" y="50" width="20" height="10" fill="#888888"/>
+  <!-- Fuel depot -->
+  <rect x="75" y="30" width="16" height="12" fill="#AACC00"/>
+  <!-- Title -->
+  <text x="64" y="20" text-anchor="middle" fill="#FFFF44" font-size="12" font-family="monospace">RR</text>
+</svg>
