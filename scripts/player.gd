@@ -34,7 +34,7 @@ func _build_model() -> void:
 	# Fuselage
 	var body := MeshInstance3D.new()
 	var bm := BoxMesh.new()
-	bm.size = Vector3(0.35, 0.18, 1.4)
+	bm.size = Vector3(0.7, 0.35, 2.8)
 	body.mesh = bm
 	body.material_override = white
 	add_child(body)
@@ -42,39 +42,39 @@ func _build_model() -> void:
 	# Left wing
 	var lwing := MeshInstance3D.new()
 	var lm := BoxMesh.new()
-	lm.size = Vector3(1.8, 0.07, 0.65)
+	lm.size = Vector3(3.6, 0.14, 1.3)
 	lwing.mesh = lm
 	lwing.material_override = white
-	lwing.position = Vector3(-1.07, 0.0, 0.1)
+	lwing.position = Vector3(-2.15, 0.0, 0.2)
 	add_child(lwing)
 
 	# Right wing
 	var rwing := MeshInstance3D.new()
 	var rm := BoxMesh.new()
-	rm.size = Vector3(1.8, 0.07, 0.65)
+	rm.size = Vector3(3.6, 0.14, 1.3)
 	rwing.mesh = rm
 	rwing.material_override = white
-	rwing.position = Vector3(1.07, 0.0, 0.1)
+	rwing.position = Vector3(2.15, 0.0, 0.2)
 	add_child(rwing)
 
 	# Tail fin
 	var tail := MeshInstance3D.new()
 	var tm := BoxMesh.new()
-	tm.size = Vector3(0.55, 0.3, 0.3)
+	tm.size = Vector3(1.1, 0.6, 0.6)
 	tail.mesh = tm
 	tail.material_override = grey
-	tail.position = Vector3(0.0, 0.15, 0.65)
+	tail.position = Vector3(0.0, 0.3, 1.3)
 	add_child(tail)
 
 	# Nose cone
 	var nose := MeshInstance3D.new()
 	var nm := CylinderMesh.new()
-	nm.top_radius = 0.07
-	nm.bottom_radius = 0.14
-	nm.height = 0.3
+	nm.top_radius = 0.14
+	nm.bottom_radius = 0.28
+	nm.height = 0.6
 	nose.mesh = nm
 	nose.material_override = engine_mat
-	nose.position = Vector3(0.0, 0.0, -0.85)
+	nose.position = Vector3(0.0, 0.0, -1.7)
 	nose.rotation_degrees = Vector3(90, 0, 0)
 	add_child(nose)
 
@@ -115,7 +115,7 @@ func get_speed_ratio() -> float:
 	return 1.0
 
 func get_hitbox_half() -> Vector3:
-	return Vector3(1.8, 0.4, 0.7)
+	return Vector3(3.2, 0.5, 1.4)
 
 func trigger_death() -> void:
 	if is_dead or _hit_flash_timer > 0.0:

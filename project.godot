@@ -18,7 +18,7 @@ window/size/viewport_width=640
 window/size/viewport_height=480
 window/size/window_width_override=1280
 window/size/window_height_override=960
-window/stretch/mode="disabled"
+window/stretch/mode="canvas_items"
 
 [rendering]
 

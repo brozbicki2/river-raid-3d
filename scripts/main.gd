@@ -34,9 +34,9 @@ func _ready() -> void:
 func _setup_world() -> void:
 	# Camera
 	camera = Camera3D.new()
-	camera.position = Vector3(0.0, 18.0, 13.0)
-	camera.look_at(Vector3(0.0, 0.0, -3.0))
-	camera.fov = 55.0
+	camera.position = Vector3(0.0, 8.0, 15.0)
+	camera.look_at(Vector3(0.0, 0.0, 3.0))
+	camera.fov = 65.0
 	add_child(camera)
 
 	# Directional light (sun)
