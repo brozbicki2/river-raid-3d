@@ -34,8 +34,8 @@ func _ready() -> void:
 func _setup_world() -> void:
 	# Camera
 	camera = Camera3D.new()
-	camera.position = Vector3(0.0, 8.0, 15.0)
-	camera.look_at(Vector3(0.0, 0.0, 3.0))
+	camera.position = Vector3(0.0, 12.0, 20.0)
+	camera.look_at(Vector3(0.0, 0.0, 5.0))
 	camera.fov = 65.0
 	add_child(camera)
 
@@ -240,6 +240,7 @@ func _respawn() -> void:
 	fuel = FUEL_MAX
 	player.is_dead = false
 	player.visible = true
+	player._hit_flash_timer = 0.0
 	player.position = Vector3(0.0, 1.5, 8.0)
 	hud.update_fuel(1.0)
 
