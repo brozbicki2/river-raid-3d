@@ -115,7 +115,7 @@ func get_speed_ratio() -> float:
 	return 1.0
 
 func get_hitbox_half() -> Vector3:
-	return Vector3(3.2, 0.5, 1.4)
+	return Vector3(2.0, 0.5, 1.0)
 
 func trigger_death() -> void:
 	if is_dead or _hit_flash_timer > 0.0:
