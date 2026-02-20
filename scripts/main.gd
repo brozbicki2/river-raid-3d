@@ -16,6 +16,9 @@ var next_extra_life: int = 10000
 var death_timer: float = 0.0
 const DEATH_DELAY: float = 1.8
 
+var invincibility_timer: float = 0.0
+const INVINCIBILITY_DURATION: float = 2.5
+
 var _scroll_offset: float = 0.0
 
 var river_gen: Node3D
@@ -107,6 +110,8 @@ func _start_game() -> void:
 	player.position = Vector3(0.0, 1.5, 8.0)
 	player.is_dead = false
 	player.visible = true
+	player._hit_flash_timer = 0.0
+	invincibility_timer = INVINCIBILITY_DURATION
 
 func _process(delta: float) -> void:
 	match state:
@@ -127,6 +132,11 @@ func _process(delta: float) -> void:
 				_start_game()
 
 func _update_game(delta: float) -> void:
+	if invincibility_timer > 0.0:
+		invincibility_timer -= delta
+		# Flash player during invincibility
+		player.visible = fmod(invincibility_timer * 8.0, 2.0) > 1.0
+
 	var speed_ratio: float = player.get_speed_ratio()
 	var current_scroll: float = BASE_SCROLL_SPEED * speed_ratio
 	river_gen.scroll_speed = current_scroll
@@ -142,8 +152,10 @@ func _update_game(delta: float) -> void:
 		_on_player_died()
 		return
 
-	_check_bank_collision()
-	_check_enemy_collisions()
+	if invincibility_timer <= 0.0:
+		_check_bank_collision()
+		_check_enemy_collisions()
+
 	_check_bullet_collisions()
 	_check_fuel_refueling(speed_ratio, delta)
 
@@ -243,6 +255,7 @@ func _respawn() -> void:
 	player._hit_flash_timer = 0.0
 	player.position = Vector3(0.0, 1.5, 8.0)
 	hud.update_fuel(1.0)
+	invincibility_timer = INVINCIBILITY_DURATION
 
 func _spawn_explosion(pos: Vector3) -> void:
 	var exp := Node3D.new()
